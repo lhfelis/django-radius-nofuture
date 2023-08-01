@@ -1,9 +1,13 @@
+from pathlib import Path
 from setuptools import setup, find_packages
 
 from radiusauth import VERSION
 
+this_directory = Path(__file__).parent
+long_description = (this_directory / "NOFUTURE.md").read_text()
+
 setup(
-    name='django-radius',
+    name='django-radius-nofuture',
     author='Rob Golding',
     author_email='rob@robgolding.com',
     description='Django authentication backend for RADIUS',
@@ -20,4 +24,6 @@ setup(
     zip_safe=False,
     packages=find_packages(),
     install_requires=['pyrad >= 1.2,!=2.2'],
+    long_description=long_description,
+    long_description_content_type='text/markdown',
 )
